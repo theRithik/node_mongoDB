@@ -73,6 +73,33 @@ app.post('/addOrders',(request,res)=>{
         }
     })
 })
+
+
+///update order
+app.put('/updateOrder',(req, response)=>{
+    client.connect((dberr, dbres)=>{
+        if(dberr){
+            response.send({
+                status:500,
+                meaasage:"error with 500"
+            })
+        }
+        else{
+             const db = dbres.db('test')
+             db.collection('citId').updateOne({ "_id" : ObjectID(req.body._id)},{$set:{"name":req.body.name}},(req.body,(err, result)=>{
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    response.send('details updated successfully')
+                }
+             }))   
+        }
+    })
+
+})
+
+
 app.listen(4000,()=>{
     console.log('in 4000')
 })

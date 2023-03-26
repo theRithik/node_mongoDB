@@ -99,6 +99,30 @@ app.put('/updateOrder',(req, response)=>{
 
 })
 
+///delete order
+
+app.delete('/deleteOrder',(req,response)=>{
+    client.connect((dberr,dbres)=>{
+        if(dberr){
+            response.send({
+                status:500,
+                message:'status 500 err'
+            })
+        }
+        else{
+            const db= dbres.db('test')
+            db.collection('citId').remove({_id:objectId(req.body._id)},(req.body,(err, result)=>{
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    response.send('removed successfully')
+                }
+            }))
+        }
+    })
+})
+
 
 
 

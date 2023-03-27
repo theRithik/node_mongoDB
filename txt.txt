@@ -1,0 +1,8 @@
+
+
+
+
+need to user middleware
+to add data to the mongodb
+
+npm i body-parser

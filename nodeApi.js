@@ -2,8 +2,7 @@ var axios = require('axios');
 var data = JSON.stringify({
     "collection": "orders",
     "database": "test",
-    "dataSource": "Cluster1",
-    
+    "dataSource": "Cluster1", 
 });
             
 var config = {

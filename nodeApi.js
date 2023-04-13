@@ -3,9 +3,7 @@ var data = JSON.stringify({
     "collection": "orders",
     "database": "test",
     "dataSource": "Cluster1",
-    // "projection": {
-    //     "_id": 1
-    // }
+    
 });
             
 var config = {
